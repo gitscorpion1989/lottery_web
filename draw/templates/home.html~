@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block sidebar %}
+    {% if user.is_authenticated %}
+        <ul>
+            <li>Hi {{user.username}}</li>
+            <li><a href="/account/bet">Bet Now!</a></li>
+            <li><a href="/account/bet_record">Histroy and Result</a></li>
+            <li><a href="/account/logout">Logout</a></li>
+        </ul> 
+    {% else %}
+         <ul>
+            <li><a href="/account/login">Login</a></li>
+            <li><a href="/account/register">Register</a></li>
+        </ul>       
+    {% endif %}
+{% endblock %}
+
+
+{% block content %}
+
+<h1>Lottery Result</h1>
+{% for result in results %}
+<div>
+<h2>Phase {{result.phase}}, Published Time: {{result.draw_date}}</h2>
+<p>Win Nuumber:{{result.re1}}, {{result.re2}}, {{result.re3}}, {{result.re4}}, {{result.re5}}, {{result.re6}}</p>
+<p>Winner: {{result.winner}}</p>
+</div>
+{% endfor %}
+
+{% endblock %}

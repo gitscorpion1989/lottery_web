@@ -1,0 +1,2 @@
+  <h2>Hi {{user.username}} you are now logged in!</h2>
+  <p>Click <a href="/">here</a> to home page.</p>

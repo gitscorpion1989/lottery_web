@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block sidebar %}
+<ul>
+    <li>Hi {{user.username}}</li>
+    <li><a href="/account/bet">Bet Now!</a></li>
+    <li><a href="/account/logout">Logout</a></li>
+</ul> 
+{% endblock %}
+{% block content %}
+
+<h1>Bet Record</h1>
+{% for bet in bets %}
+<div>
+<h2>Phase {{bet.phase}}, bet Time: {{bet.bet_date}}</h2>
+<p>Bet Number:{{bet.re1}} ,{{bet.re2}} ,{{bet.re3}} ,{{bet.re4}} ,{{bet.re5}} ,{{bet.re6}}</p>
+<p>Result: {{bet.bet_status}}</p>
+</div>
+{% endfor %}
+{% endblock %}
